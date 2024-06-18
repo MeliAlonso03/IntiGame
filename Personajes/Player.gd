@@ -15,30 +15,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	get_input()
+	position += velocity * delta
+	
+	position.x = clamp(position.x, 0, 480)
+	position.y = clamp(position.y, 0, 720)
+		
+	process_animations()
+
+func get_input():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -1
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = 1
 	if Input.is_action_pressed("ui_up"):
-		velocity.y += -1
+		velocity.y = -1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed * delta
-	position += velocity
+		velocity.y = 1
 	
-	if position.x >= 480:
-		position.x = 480
-	if position.x <= 0:
-		position.x =0
-	if position.y >= 720:
-		position.y = 720
-	if position.y <= 0:
-		position.y = 0 
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed 
 		
-		
+func process_animations():
 	print (velocity)
 	if velocity.length() != 0: 
 		$AnimatedSprite.play("default")
@@ -48,4 +47,3 @@ func _process(delta):
 			$AnimatedSprite.flip_h = false
 	else:
 		$AnimatedSprite.play("default")
-
