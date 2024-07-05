@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main/Main.gd" type="Script" id=1]
+[ext_resource path="res://Personajes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gem/Gem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/RubikMonoOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Main/HUD.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 4 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+Gem = ExtResource( 3 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -3, 2 )
+
+[node name="GemConteiner" type="Node2D" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 480.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 48.0
+
+[node name="LabelScore" type="Label" parent="HUD/MarginContainer"]
+margin_right = 460.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "Inti"
+
+[node name="LabelTimer" type="Label" parent="HUD/MarginContainer"]
+margin_right = 460.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "Inti"
+align = 2
+
+[node name="LabelLevel" type="Label" parent="HUD/MarginContainer"]
+margin_right = 460.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "*"
+align = 1
+
+[node name="LabelGameOver" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -212.0
+margin_top = 61.0
+margin_right = 256.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 2 )
+text = "
+
+
+
+¡Game Over!"
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="PollitoTimer" type="Timer" parent="."]
+
+[connection signal="picked" from="Player1" to="." method="_on_Player1_picked"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="PollitoTimer" to="." method="_on_PollitoTimer_timeout"]

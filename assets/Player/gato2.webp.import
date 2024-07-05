@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gato3.webp-736aa4dd52fc412a2be6d87276c0da19.stex"
+path="res://.import/gato2.webp-b215af0b7a0e7886b161bfee096810aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/gato3.webp"
-dest_files=[ "res://.import/gato3.webp-736aa4dd52fc412a2be6d87276c0da19.stex" ]
+source_file="res://assets/Player/gato2.webp"
+dest_files=[ "res://.import/gato2.webp-b215af0b7a0e7886b161bfee096810aa.stex" ]
 
 [params]
 

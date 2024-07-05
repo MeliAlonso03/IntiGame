@@ -1,5 +1,7 @@
 extends Area2D
 
+#Signals
+signal picked
 
 # Declare member variables here. Examples:
 var velocity = Vector2.ZERO
@@ -38,7 +40,6 @@ func get_input():
 		velocity = velocity.normalized() * speed 
 		
 func process_animations():
-	print (velocity)
 	if velocity.length() != 0: 
 		$AnimatedSprite.play("default")
 		if velocity.x < 0:
@@ -47,3 +48,18 @@ func process_animations():
 			$AnimatedSprite.flip_h = false
 	else:
 		$AnimatedSprite.play("default")
+
+
+func _on_Player1_area_entered(area):
+	if area.is_in_group("gem") and area.has_method("pickup"):
+		area.pickup()
+		emit_signal("picked", "gem")
+	elif area.is_in_group("pollito") and area.has_method("pickup"):
+		area.pickup()
+		emit_signal("picked", "pollito")
+
+
+func game_over():
+	set_process(false)
+	$AnimatedSprite.animation = "hurt"
+	pass

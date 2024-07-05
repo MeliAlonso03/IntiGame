@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gato1.webp-8b4c19a9d3a0efd116750673f5c97ce9.stex"
+path="res://.import/pollitoJuegoInti.webp-78e8e1dff57c9d647269473b4458c9d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/gato1.webp"
-dest_files=[ "res://.import/gato1.webp-8b4c19a9d3a0efd116750673f5c97ce9.stex" ]
+source_file="res://assets/pollito/pollitoJuegoInti.webp"
+dest_files=[ "res://.import/pollitoJuegoInti.webp-78e8e1dff57c9d647269473b4458c9d8.stex" ]
 
 [params]
 
